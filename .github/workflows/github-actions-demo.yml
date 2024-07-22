@@ -1,14 +1,14 @@
-name: GitHub Actions Demo
-on: 
+name: GitHub Actions Demo 
+on:
   push:
-    branches: [main]
+    branches: [ main ]
     paths-ignore: [.github/**]
   pull_request:
-    branches: [main]
+    branches: [ main ]
   schedule:
     - cron: '15 6 * * 0'
   workflow_dispatch:
-jobs:
+  jobs:
   Build:
     runs-on: ubuntu-latest
     steps:
@@ -22,4 +22,3 @@ jobs:
         run: |
           echo "The repository ${{ github.repository }} contains the following files:"
           tree
-    
