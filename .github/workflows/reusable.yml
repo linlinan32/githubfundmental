@@ -14,10 +14,13 @@ on:
 
 jobs:
   reusable-job:
-    runs-on: Ubuntu-latest
-    outputs: ${{ steps.time.outputs.current-time }}
+    runs-on: ubuntu-latest
+    outputs:
+      current-time: ${{ steps.time.outputs.time }}
     steps:
-      - run: echo "Hello ${{input.who-to-greet}}"
-      - id: time
-        run: echo "current-time=${date}" >> $GITHUB_OUTPUT
+      - name: Greet someone
+        run: echo "Hello ${{ inputs.who-to-greet }}"
+      - name: Set time
+        id: time
+        run: echo "time=$(date)" >> $GITHUB_OUTPUT
         
