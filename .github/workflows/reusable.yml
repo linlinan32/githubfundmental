@@ -9,7 +9,7 @@ on:
         default: "World"
     outputs:
       current-time: 
-        description: ${{ steps.time.outputs.current-time }}
+        description: "find output"
         value: ${{ jobs.reusable-job.outputs.current-time }}
 jobs:
   reusable-job:
